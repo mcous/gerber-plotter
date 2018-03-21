@@ -92,14 +92,14 @@ describe('gerber plotter', function () {
     it('should have an outline mode option that defaults to falsey', function () {
       expect(!p._plotAsOutline).to.equal(true)
 
-      p = plotter({plotAsOutline: true})
-      expect(p._plotAsOutline).to.equal(true)
+      p = plotter({plotAsOutline: true, units: 'mm'})
+      expect(p._plotAsOutline).to.equal(0.00011)
     })
 
     it('should force optimize paths to true if plot as outline is true', function () {
-      p = plotter({plotAsOutline: true, optimizePaths: false})
-      expect(p._plotAsOutline).to.equal(true)
-      expect(p._optimizePaths).to.equal(true)
+      p = plotter({plotAsOutline: true, optimizePaths: false, units: 'mm'})
+      expect(p._plotAsOutline).to.equal(0.00011)
+      expect(p._optimizePaths).to.be.true
     })
   })
 
@@ -1870,8 +1870,7 @@ describe('gerber plotter', function () {
     })
 
     it('should be able to set a custom max gap size', function () {
-      outPlotter = plotter({plotAsOutline: 0.0011})
-
+      outPlotter = plotter({plotAsOutline: 0.0011, units: 'mm'})
       expect(outPlotter._path._fillGaps).to.equal(0.0011)
     })
   })
