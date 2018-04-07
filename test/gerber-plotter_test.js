@@ -2,7 +2,10 @@
 // test suite for plotter
 'use strict'
 
-var expect = require('chai').expect
+var chai = require('chai')
+var dirtyChai = require('dirty-chai')
+chai.use(dirtyChai)
+var expect = chai.expect
 
 var plotter = require('../lib')
 var boundingBox = require('../lib/_box')
@@ -99,7 +102,7 @@ describe('gerber plotter', function () {
     it('should force optimize paths to true if plot as outline is true', function () {
       p = plotter({plotAsOutline: true, optimizePaths: false, units: 'mm'})
       expect(p._plotAsOutline).to.equal(0.00011)
-      expect(p._optimizePaths).to.be.true
+      expect(p._optimizePaths).to.be.true()
     })
   })
 
