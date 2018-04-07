@@ -96,6 +96,20 @@ describe('gerber plotter', function () {
       expect(p._plotAsOutline).to.equal(0.00011)
     })
 
+    it('should convert default outline gap fill to inches', function () {
+      expect(!p._plotAsOutline).to.equal(true)
+
+      p = plotter({plotAsOutline: true, units: 'in'})
+      expect(p._plotAsOutline).to.be.closeTo(0.00011 / 25.4, EPSILON)
+    })
+
+    it('should convert given outline gap fill to inches', function () {
+      expect(!p._plotAsOutline).to.equal(true)
+
+      p = plotter({plotAsOutline: 0.1, units: 'in'})
+      expect(p._plotAsOutline).to.be.closeTo(0.1 / 25.4, EPSILON)
+    })
+
     it('should force optimize paths to true if plot as outline is true', function () {
       p = plotter({plotAsOutline: true, optimizePaths: false, units: 'mm'})
       expect(p._plotAsOutline).to.equal(0.00011)
