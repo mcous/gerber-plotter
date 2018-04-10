@@ -204,7 +204,7 @@ describe('path graphs', function () {
       {type: 'line', start: [0, 0], end: [1.01, 0]},
       {type: 'line', start: [1.01, 0], end: [1.03, 0]},
       {type: 'line', start: [1.03, 0], end: [1.04, 0.01]},
-      {type: 'line', start: [1.04, 0.01], end: [2, 2]},
+      {type: 'line', start: [1.04, 0.01], end: [2, 2]}
     ])
   })
 })
