@@ -53,28 +53,6 @@ describe('path graphs', function () {
     ])
   })
 
-  it('should traverse the graph depth first', function () {
-    p.add({type: 'line', start: [0, 0], end: [1, 0]})
-    p.add({type: 'line', start: [0, 0], end: [-1, 0]})
-    p.add({type: 'line', start: [0, 1], end: [1, 1]})
-    p.add({type: 'line', start: [-1, -1], end: [0, -1]})
-    p.add({type: 'line', start: [0, 0], end: [0, 1]})
-    p.add({type: 'line', start: [0, 0], end: [0, -1]})
-    p.add({type: 'line', start: [1, 0], end: [1, 1]})
-    p.add({type: 'line', start: [-1, 0], end: [-1, -1]})
-
-    expect(p.traverse()).to.eql([
-      {type: 'line', start: [0, 0], end: [1, 0]},
-      {type: 'line', start: [1, 0], end: [1, 1]},
-      {type: 'line', start: [1, 1], end: [0, 1]},
-      {type: 'line', start: [0, 1], end: [0, 0]},
-      {type: 'line', start: [0, 0], end: [-1, 0]},
-      {type: 'line', start: [-1, 0], end: [-1, -1]},
-      {type: 'line', start: [-1, -1], end: [0, -1]},
-      {type: 'line', start: [0, -1], end: [0, 0]}
-    ])
-  })
-
   it('should reverse arc segments during traversal', function () {
     var HALF_PI = Math.PI / 2
     p.add({type: 'line', start: [0, 0], end: [1, 0]})
