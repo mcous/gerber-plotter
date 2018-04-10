@@ -161,7 +161,7 @@ describe('path graphs', function () {
   })
 
   it('should be able to fill gaps', function () {
-    p = new PathGraph(true, true)
+    p = new PathGraph(true, 0.00011)
 
     p.add({type: 'line', start: [0, 0], end: [1.0001, 0]})
     p.add({type: 'line', start: [1, 0], end: [1.0001, 1]})
