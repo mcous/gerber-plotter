@@ -190,4 +190,20 @@ describe('path graphs', function () {
       {type: 'line', start: [0, 1], end: [0, 0]}
     ])
   })
+
+  it('should find the closest point when filling gaps', function () {
+    p = new PathGraph(true, 0.06)
+
+    p.add({type: 'line', start: [0, 0], end: [1, 0]})
+    p.add({type: 'line', start: [1.01, 0], end: [1.02, 0]})
+    p.add({type: 'line', start: [1.02, 0], end: [1.03, 0.01]})
+    p.add({type: 'line', start: [1.03, 0.01], end: [2, 2]})
+
+    expect(p.traverse()).to.eql([
+      {type: 'line', start: [0, 0], end: [1, 0]},
+      {type: 'line', start: [1, 0], end: [1.02, 0]},
+      {type: 'line', start: [1.02, 0], end: [1.03, 0.01]},
+      {type: 'line', start: [1.03, 0.01], end: [2, 2]},
+    ])
+  })
 })
