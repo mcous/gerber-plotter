@@ -53,6 +53,9 @@ describe('path graphs', function () {
     ])
   })
 
+  // depth first traversal is used so that when converted to an SVG path it
+  // retains its shape. see discussion:
+  // https://github.com/mcous/gerber-plotter/pull/13
   it('should traverse the graph depth first', function () {
     p.add({type: 'line', start: [0, 0], end: [1, 0]})
     p.add({type: 'line', start: [0, 0], end: [-1, 0]})
