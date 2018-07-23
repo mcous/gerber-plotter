@@ -1,3 +1,9 @@
+# repository deprecated
+
+Development of `gerber-plotter` has moved to [tracespace/tracespace][tracespace]!
+
+[tracespace]: https://github.com/tracespace/tracespace
+
 # gerber plotter
 
 [![npm](https://img.shields.io/npm/v/gerber-plotter.svg?style=flat-square&maxAge=86400)](https://www.npmjs.com/package/gerber-plotter)
